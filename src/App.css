@@ -1,0 +1,368 @@
+:root{
+  --bg: #041526;
+  --panel: #07223a;
+  --accent: #1e90ff;
+  --accent2: #2ea6ff;
+  --muted: #9fb7cc;
+  --text: #e6f7ff;
+  --glass: rgba(255,255,255,0.03);
+  --topnav-h: 64px;
+}
+
+/* reset */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;background:linear-gradient(180deg,var(--bg),#031727);color:var(--text);-webkit-font-smoothing:antialiased}
+
+/* progress */
+.progressWrap{position:fixed;left:0;right:0;top:0;height:4px;z-index:220;pointer-events:none}
+.progress{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 8px 30px rgba(30,144,255,0.06)}
+
+/* topnav */
+.topnav{position:fixed;left:0;right:0;top:0;height:var(--topnav-h);display:flex;align-items:center;justify-content:space-between;padding:8px 20px;z-index:210;background:linear-gradient(90deg, rgba(0,0,0,0.35), rgba(2,8,18,0.22));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:700}
+.logoDot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 6px 18px rgba(46,166,255,0.08)}
+.navlinks{display:flex;gap:8px;align-items:center}
+.navbtn{background:transparent;border:0;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+.navbtn:hover{color:var(--text);background:rgba(255,255,255,0.02)}
+.navbtn.active{color:var(--text);background:linear-gradient(90deg,rgba(30,144,255,0.06),rgba(46,166,255,0.03));box-shadow:0 8px 30px rgba(30,144,255,0.03)}
+
+/* layout */
+.layout{max-width:1200px;margin:calc(var(--topnav-h) + 36px) auto 80px;display:grid;grid-template-columns:420px 1fr;gap:34px;padding:0 18px;align-items:start}
+.sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);padding:28px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);position:sticky;top:calc(var(--topnav-h) + 12px);z-index:120}
+.profileRow{display:flex;gap:12px;align-items:center;padding:6px}
+.photoWrap{width:96px;height:96px;flex:0 0 96px}
+.photo{width:100%;height:100%;border-radius:12px;object-fit:cover;border:3px solid rgba(255,255,255,0.04)}
+.profileInfo{display:flex;flex-direction:column}
+.name{font-size:16px;color:var(--text);margin:0}
+.nickname{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* side cta */
+.side-cta{display:flex;gap:8px;margin-top:12px}
+.download{background:linear-gradient(90deg,var(--accent),var(--accent2));border:0;color:#022;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:0 8px 22px rgba(30,144,255,0.06)}
+.theme{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 10px;border-radius:10px;cursor:pointer}
+
+/* toc */
+.toc{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.toc-btn{background:transparent;border:0;color:var(--muted);text-align:left;padding:10px;border-radius:8px;cursor:pointer}
+.toc-btn:hover{background:rgba(255,255,255,0.02);color:var(--text)}
+.toc-btn.active{background:linear-gradient(90deg,rgba(30,144,255,0.06),rgba(46,166,255,0.03));color:var(--text);font-weight:700}
+
+/* content */
+.content{padding-bottom:80px}
+.hero{position:relative;overflow:hidden;border-radius:12px;padding:36px;margin-bottom:22px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 16px 48px rgba(0,0,0,0.6)}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(600px 250px at 85% 20%, rgba(30,144,255,0.06), transparent),
+  radial-gradient(420px 180px at 20% 80%, rgba(46,166,255,0.04), transparent);
+filter:blur(36px);opacity:0.9;pointer-events:none}
+.hero-inner{position:relative;z-index:2;transform:translateY(0);transition:transform 600ms ease-out}
+.hero-title{margin:0;font-size:28px;color:var(--text)}
+.hero-sub{color:var(--muted);margin-top:8px}
+.hero-actions{margin-top:16px;display:flex;gap:12px}
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent2));border:0;color:#022;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}
+.cta.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
+
+/* panels / reveal */
+.section{padding:28px;border-radius:12px;margin-bottom:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03);box-shadow:0 14px 40px rgba(0,0,0,0.5);transform:translateY(22px);opacity:0;transition:transform 700ms cubic-bezier(.2,.9,.3,1),opacity 600ms}
+.section.in-view{transform:translateY(0);opacity:1}
+.section-title{margin:0 0 12px 0;color:var(--accent);font-size:18px}
+.section-body{color:var(--muted);line-height:1.6}
+.card{background:rgba(255,255,255,0.01);padding:12px;border-radius:10px;margin:10px 0;border:1px solid rgba(255,255,255,0.02)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.skill{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:8px;text-align:center;font-weight:700;color:var(--text)}
+
+/* footer & backTop */
+.page-footer{text-align:center;color:var(--muted);margin-top:20px;padding:24px 0}
+.backTop{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#022;border:0;font-size:20px;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity 300ms,transform 300ms;z-index:220}
+.backTop.show{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr;margin-top:calc(var(--topnav-h) + 12px);padding:0 14px}
+  .sidebar{position:relative;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:10px}
+  .toc{display:none}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .navlinks{display:none}
+}
+
+/* light theme */
+:root.light{
+  --bg: #f6f9fc;           /* very light blue background */
+  --panel: #ffffff;        /* card/panel background */
+  --accent: #0b78b6;       /* soft navy */
+  --accent2: #66b8ff;      /* sky blue */
+  --muted: #506873;        /* muted slate for secondary text */
+  --text: #0f2430;         /* main dark text */
+  --glass: rgba(15,35,50,0.04);
+  --soft-shadow: 0 8px 24px rgba(16,30,40,0.06);
+  --card-elev: 0 10px 30px rgba(16,30,40,0.06);
+  --topnav-h: 64px;
+}
+
+/* Light-theme overall */
+:root.light body{
+  background: linear-gradient(180deg, var(--bg), #eef6fb);
+  color: var(--text);
+}
+
+/* Header / topnav */
+:root.light .topnav{
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(250,250,250,0.9));
+  border-bottom-color: rgba(16,30,40,0.06);
+  box-shadow: var(--soft-shadow);
+}
+
+/* Panels / sidebar / cards */
+:root.light .sidebar,
+:root.light .section,
+:root.light .card,
+:root.light .contact-list {
+  background: var(--panel);
+  border-color: rgba(16,30,40,0.06);
+  color: var(--text);
+  box-shadow: var(--card-elev);
+}
+
+/* Nav / toc buttons */
+:root.light .navbtn,
+:root.light .toc-btn {
+  color: var(--muted);
+}
+:root.light .navbtn:hover,
+:root.light .toc-btn:hover {
+  color: var(--text);
+}
+:root.light .navbtn.active,
+:root.light .toc-btn.active {
+  color: var(--text);
+  background: linear-gradient(90deg, rgba(11,120,182,0.12), rgba(102,184,255,0.06));
+  box-shadow: 0 8px 22px rgba(11,120,182,0.06);
+}
+
+/* CTA / Download */
+:root.light .download,
+:root.light .cta {
+  color: #05202a;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  box-shadow: 0 8px 22px rgba(11,120,182,0.06);
+}
+
+/* Photo / avatar */
+:root.light .photo{
+  border-color: rgba(11,120,182,0.08);
+  box-shadow: 0 8px 20px rgba(11,120,182,0.04);
+}
+
+/* Accent bar and focus */
+:root.light .section::before{
+  background: linear-gradient(180deg, rgba(11,120,182,0.9), rgba(102,184,255,0.6));
+  box-shadow: none;
+}
+:root.light .section:focus{
+  box-shadow: 0 12px 36px rgba(11,120,182,0.08), 0 0 0 4px rgba(11,120,182,0.06);
+  border-color: rgba(11,120,182,0.12);
+}
+
+/* Profile / avatar: match the light sample (centered avatar, framed name) */
+.profileRow.framed{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  padding:10px 6px;
+  margin-bottom:8px;
+}
+
+/* subtle square background behind avatar */
+.avatar-bg{
+  width:92px;
+  height:92px;
+  border-radius:6px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  position:relative;
+  /* slightly lighter than panel for both themes */
+  background: color-mix(in srgb, var(--panel) 88%, white 12%);
+  box-shadow: 0 8px 20px rgba(2,10,20,0.32);
+  border:1px solid color-mix(in srgb, var(--panel) 24%, white 76%);
+}
+
+/* smaller image overlapping the top of the square (like sample) */
+.photo.small{
+  width:74px;
+  height:74px;
+  object-fit:cover;
+  border-radius:6px;
+  margin-top: -6px; /* lift into the square like the sample */
+  border:3px solid color-mix(in srgb, var(--panel) 24%, white 76%);
+  box-shadow: 0 8px 22px rgba(2,10,20,0.28);
+}
+
+/* centered name block */
+.profileInfo.center{ text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px; }
+
+/* prominent name */
+.profileInfo .name{
+  font-size:16px;
+  font-weight:700;
+  color:var(--text);
+  line-height:1.1;
+  letter-spacing:0.1px;
+}
+
+/* nickname inside a pale rounded bar (like sample) */
+.profileInfo .nickname{
+  font-size:13px;
+  color:var(--muted);
+  background: color-mix(in srgb, var(--panel) 92%, white 8%);
+  padding:6px 12px;
+  border-radius:8px;
+  border:1px solid color-mix(in srgb, var(--panel) 24%, white 76%);
+  box-shadow: 0 6px 14px rgba(2,10,20,0.06);
+}
+
+/* ensure avatar styles adapt in dark theme */
+:root.light .avatar-bg,
+:root.light .photo.small,
+:root.light .profileInfo .nickname {
+  background: transparent;
+  border-color: rgba(11,120,182,0.06);
+  box-shadow: 0 6px 16px rgba(11,120,182,0.04);
+}
+
+/* Avatar: remove double framed layers, keep single clean image */
+.avatar-bg{
+  width:92px;
+  height:92px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  background: transparent;            /* removed inner square background */
+  box-shadow: none;                   /* remove extra shadow */
+  border: none;                       /* remove outer border */
+}
+
+/* single clean avatar image */
+.photo.small{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-top: 0;                      /* remove overlap */
+  border: 2px solid rgba(255,255,255,0.06); /* subtle outline only */
+  box-shadow: 0 6px 14px rgba(2,10,20,0.24); /* light lift */
+}
+
+/* light theme variant - keep subtle */
+:root.light .photo.small {
+  border-color: rgba(11,120,182,0.08);
+  box-shadow: 0 6px 12px rgba(11,120,182,0.04);
+}
+
+/* responsive adjustments */
+@media (max-width:980px){
+  .avatar-bg{ width:76px; height:76px; }
+  .photo.small{ width:62px; height:62px; margin-top:-6px; border-width:2px; }
+  .profileInfo .name{ font-size:15px; }
+  .profileInfo .nickname{ font-size:12px; padding:5px 10px; }
+}
+
+/* Typography: increase sizes for better readability without stretching layout */
+html, body {
+  font-size: 16px; /* base */
+}
+
+/* Sidebar / profile */
+.profileInfo .name {
+  font-size: 20px;    /* larger name */
+  font-weight: 800;
+}
+.profileInfo .nickname {
+  font-size: 14px;
+  padding: 8px 14px;
+}
+
+/* Header / nav */
+.navbtn, .toc-btn {
+  font-size: 15px;
+  padding: 10px 14px;
+}
+
+/* Section headings & body */
+.section-title {
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+.section-body,
+.muted,
+.contact-list ul,
+.card p,
+.card li {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Skills and buttons */
+.skills-grid .skill {
+  font-size: 15px;
+  padding: 12px 10px;
+}
+.download, .cta {
+  font-size: 15px;
+  padding: 10px 14px;
+}
+
+/* Footer */
+.page-footer {
+  font-size: 14px;
+}
+
+/* small-screen adjustments keep relative sizes */
+@media (max-width: 980px) {
+  html, body { font-size: 15px; }
+  .profileInfo .name { font-size: 18px; }
+  .section-title { font-size: 18px; }
+  .navbtn, .toc-btn { font-size: 14px; }
+}
+
+/* skill-list (sidebar) */
+.skill-list{
+  margin-top:14px;
+  padding:12px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.008), transparent);
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.skill-list h4{ color:var(--accent); margin:0 0 8px 0; font-size:13px; }
+.skill-list ul{ list-style: none; margin:0; padding:0; display:grid; grid-template-columns: 1fr 1fr; gap:8px 12px; color:var(--muted); font-size:14px; }
+.skill-list li{ background: color-mix(in srgb, var(--panel) 96%, transparent 4%); padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.02); box-shadow: 0 6px 14px rgba(2,10,20,0.04); }
+
+@media (max-width:980px){
+  .skill-list ul{ grid-template-columns: 1fr; }
+}
+
+/* make top nav handle more items and scroll horizontally on small widths */
+.navlinks{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  overflow-x:auto;
+  padding-bottom:4px;
+  -webkit-overflow-scrolling: touch;
+}
+.navlinks::-webkit-scrollbar{ height:6px }
+.navlinks::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.03); border-radius:6px }
+
+/* ensure active nav has clear pill look */
+.navbtn{
+  white-space:nowrap;
+  padding:8px 12px;
+  border-radius:10px;
+}
+@media(min-width:1200px){
+  .navlinks{ gap:14px }
+}
