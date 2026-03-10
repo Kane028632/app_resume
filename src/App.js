@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
-import profile from "./img/mu.JPG"; // put your image at src/profile.jpg
+import profile from "./img/pic.jpg"; // put your image at src/profile.jpg
 
 const SECTIONS = [
   {
