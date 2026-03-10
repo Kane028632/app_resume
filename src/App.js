@@ -116,7 +116,7 @@ const SECTIONS = [
           <li><strong>Phone:</strong> <a href="tel:0869871141">086-987-1141</a></li>
           <li><strong>Email:</strong> <a href="mailto:kittpak.skt@gmail.com">kittpak.skt@gmail.com</a></li>
           <li><strong>Address:</strong> 98/10 My Isara Village, Moo 5, Bang Sri Mueang, Mueang Nonthaburi</li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/yourname" target="_blank" rel="noreferrer">github.com/yourname</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/Kane028632" target="_blank" rel="noreferrer">github.com/Kane028632</a></li>
         </ul>
       </div>
     ),
