@@ -218,7 +218,7 @@ export default function App() {
   };
 
   const downloadCV = async () => {
-    const url = "/resumekane.pdf"; // ensure this file is in the public/ directory
+    const url = process.env.PUBLIC_URL + "/resumekane.pdf"; // ensure this file is in the public/ directory
     try {
       const res = await fetch(url, { method: "HEAD" });
       if (!res.ok) {
