@@ -227,12 +227,12 @@ export default function App() {
       }
       const a = document.createElement("a");
       a.href = url;
-      a.setAttribute("download", "resume.pdf");
+      a.setAttribute("download", "Portfolio.pdf");
       document.body.appendChild(a);
       a.click();
       a.remove();
     } catch {
-      window.open("/resume.pdf", "_blank");
+      window.open("/Portfolio.pdf", "_blank");
     }
   };
 
@@ -321,7 +321,7 @@ END:VCARD`;
           </div>
 
           <div className="side-cta top">
-            <button type="button" className="download" onClick={downloadCV}>Click to Download Portfolio Here !!!</button>
+            <button type="button" className="download" onClick={downloadCV}>Click toDownload Portfolio Here !!!</button>
             <button type="button" className="theme" onClick={toggleTheme}>Theme</button>
           </div>
 
