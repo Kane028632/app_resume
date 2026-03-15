@@ -218,7 +218,7 @@ export default function App() {
   };
 
   const downloadCV = async () => {
-    const url = "/resumekane.pdf";
+    const url = "/resumekane.pdf"; // ensure this file is in the public/ directory
     try {
       const res = await fetch(url, { method: "HEAD" });
       if (!res.ok) {
@@ -321,7 +321,7 @@ END:VCARD`;
           </div>
 
           <div className="side-cta top">
-            <button type="button" className="download" onClick={downloadCV}>Download CV</button>
+            <button type="button" className="download" onClick={downloadCV}>Click to Download Portfolio Here !!!</button>
             <button type="button" className="theme" onClick={toggleTheme}>Theme</button>
           </div>
 
